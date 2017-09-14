@@ -1,11 +1,11 @@
 <?php
-// Template: Home page
+// Template name: Home
 
 get_header();
 ?>
 
-<div class="main-content">
-  <h1>Hello world!</h1>
+<div class="home-page">
+  <h1>Home page!</h1>
 </div>
 
 <?php get_footer(); ?>

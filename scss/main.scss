@@ -1,3 +1,10 @@
-body {
-  background-color: red;
-}
+@import "bourbon/bourbon";
+
+// Main styles
+
+// Page styles
+@import "pages/home";
+@import "pages/nav";
+@import "pages/portfolio";
+@import "pages/process";
+@import "pages/staff";
