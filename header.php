@@ -1,8 +1,13 @@
+<?php
+$menu = wp_get_nav_menu_object('Main');
+$items = wp_get_nav_menu_items($menu->term_id);
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Grant Whiting's Portfolio</title>
-    <meta name="description" content="Grant Whiting's web developmeint portfolio">
+    <title>Architectural Iron Works</title>
+    <meta name="description" content="Architectural Iron Works">
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel=icon type="img/ico" href=/favicon.ico> -->
@@ -13,16 +18,16 @@
 
   <body>
     <header>
-      <nav>
-        <ul>
-          <li>
-            <img src="http://placehold.it/100x50?Logo" alt="AIW logo" />
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="nav-logo">
+            <img src="http://placehold.it/100x50?text=Logo" alt="AIW logo" />
           </li>
-          <li><a href="#">Home</a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
+          <?php foreach ($items as $item): ?>
+          <li class="main-nav__list--item">
+            <a href="<?php echo $item->url; ?>"><?php echo $item->title; ?></a>
+          </li>
+          <?php endforeach; ?>
         </ul>
       </nav>
     </header>

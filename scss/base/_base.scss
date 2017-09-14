@@ -1,0 +1,54 @@
+// Import variabless
+@import "variables";
+
+/********** Base styles **********/
+
+// Global
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+// Grid
+.main-content {
+  border: 1px solid blue;
+
+  @include grid-container;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+
+// Links
+a {
+  text-decoration: none;
+  color: $linkColor;
+  @include transition(color 0.2s ease);
+  position: relative;
+
+  &:after {
+    $navLinkBorderColor: $secondaryColor;
+
+    content: "";
+    @include position(absolute, 100% null 0 50%);
+    @include size(0 2px);
+    @include transition(width 0.2s ease);
+    @include transform(translateY(-50%) translateX(-50%));
+    background-color: $navLinkBorderColor;
+    display: inline-block;
+  }
+
+  &:hover {
+    color: tint($linkColor, 50%);
+
+    &:after {
+      width: 100%;
+    }
+  }
+}
