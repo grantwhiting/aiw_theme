@@ -1,12 +1,10 @@
-// Import variabless
-@import "variables";
-
 /********** Base styles **********/
 
 // Global
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -16,39 +14,111 @@ body {
 
 // Grid
 .main-content {
-  border: 1px solid blue;
-
   @include grid-container;
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 50px;
-}
-
-
-// Links
-a {
-  text-decoration: none;
-  color: $linkColor;
-  @include transition(color 0.2s ease);
   position: relative;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 15px;
 
-  &:after {
-    $navLinkBorderColor: $secondaryColor;
-
-    content: "";
-    @include position(absolute, 100% null 0 50%);
-    @include size(0 2px);
-    @include transition(width 0.2s ease);
-    @include transform(translateY(-50%) translateX(-50%));
-    background-color: $navLinkBorderColor;
-    display: inline-block;
+  &__inner {
+    max-width: 1500px;
   }
 
-  &:hover {
-    color: tint($linkColor, 50%);
+  &:after {
+    content: "";
+    @include position(absolute, null null 0 0);
+    width: 100%;
+    box-shadow: 0px 10px 14px -4px rgba(0, 0, 0, 0.75);
+    height: 10px;
+  }
+}
+
+.section {
+  padding: 20px 0;
+
+  &__title {
+    display: block;
+    position: relative;
+    line-height: 2;
+    margin-bottom: 20px;
+    text-align: center;
+
+    span {
+      display: inline-block;
+      padding: 0 13px;
+      background-color: #fff;
+      font-weight: 600;
+      font-size: 1.3em;
+      color: $mainColor;
+      position: relative;
+      z-index: 1;
+    }
 
     &:after {
-      width: 100%;
+      content: "";
+      @include position(absolute, 50% null null 0);
+      @include size(100% 1px);
+      background-color: $mainColor;
+      z-index: 0;
     }
+  }
+}
+
+.text-section {
+  margin: 30px auto 50px auto;
+  max-width: 960px;
+  text-align: center;
+}
+
+// Header
+header {
+  position: relative;
+  overflow: hidden;
+
+  .parallax-static-content { // Specific to parallax in the header
+    position: relative;
+    height: 30em;
+
+    .tagline {
+      @include position(absolute, 50% null null 50%);
+      @include transform(translateY(-50%) translateX(-50%));
+      color: #fff;
+      font-family: 'Poiret One', cursive;
+
+      h1 {
+        font-size: 5.4em;
+        margin: 0 auto;
+      }
+
+      p {
+        font-size: 3em;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.no-banner-header {
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+// 404
+.notfound {
+  text-align: center;
+}
+
+// Footer
+footer {
+  text-align: center;
+  display: table;
+  @include size(100% 100px);
+  @include position(fixed, null null 0 0);
+  z-index: -1;
+  padding: 30px 15px;
+
+  p {
+    display: table-cell;
+    vertical-align: middle;
   }
 }

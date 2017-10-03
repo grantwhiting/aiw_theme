@@ -1,10 +1,44 @@
 /********** Navigation styles **********/
 
+// For the contact page only
+// There is no parallax image on this page
+.contact_header .main-nav {
+  background-color: rgba(230, 230, 230, 0.8);
+}
+
 // Main nav
 .main-nav {
-  border: 1px solid red;
+  position: absolute !important;
+  @include transition(all 0.5s ease);
+  position: relative;
+  z-index: 2;
+  width: 100%;
 
-  background-color: rgba(255, 255, 255, 0.8);
+  &.sticky-nav {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 99999;
+
+    .main-nav__list {
+
+      .nav-logo {
+        height: 65px;
+      }
+
+      &--item {
+
+        a {
+          color: $linkColor;
+
+          &:hover {
+            color: tint($linkColor, 50%);
+          }
+        }
+      }
+    }
+  }
 
   &__list {
     list-style: none;
@@ -14,21 +48,117 @@
     padding: 0 20px;
 
     .nav-logo {
+      @include transition(height 0.5s ease);
+      height: 70px;
       margin-right: auto;
-      padding: 5px 0;
+      padding: 10px 0;
+
+      img {
+        height: 100%;
+      }
     }
 
     &--item {
       display: table;
       margin: 0 20px;
-      height: 60px;
+      height: 40px;
 
       a {
         display: table-cell;
         text-align: center;
         vertical-align: middle;
-        padding: 0px 30px;
+        padding: 0px 13px;
+        color: #fff;
+
+        &:after {
+          $navLinkBorderColor: $mainColor;
+
+          content: "";
+          @include position(absolute, 100% null 0 50%);
+          @include size(0 2px);
+          @include transition(width 0.2s ease);
+          @include transform(translateY(-50%) translateX(-50%));
+          background-color: $navLinkBorderColor;
+          display: inline-block;
+        }
+
+        &:hover {
+          color: shade(#fff, 20%);
+
+          &:after {
+            width: 100%;
+          }
+        }
+
+        &.active {
+          color: shade(#fff, 20%);
+
+          &:after {
+            width: 100%;
+          }
+        }
       }
     }
+  }
+
+  @media screen and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+
+// Mobile nav
+.mobile-nav {
+  display: none;
+
+  @include position(fixed, 0 null null 0);
+  @include transition(all 0.4s ease);
+  overflow: hidden;
+  width: 100%;
+  z-index: 99999;
+  height: 65px;
+
+  &.is-open{
+    height: 100%;
+  }
+
+  &__bar {
+    @include display(flex);
+    padding: 5px 15px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-between;
+    background-color: #fff;
+    align-items: center;
+  }
+
+  &__list {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    list-style: none;
+    padding: 10px 0;
+
+    &--item {
+      line-height: 2.4;
+      font-size: 1.2em;
+
+      a {
+        @include display(block);
+        padding: 0 20px;
+        text-decoration: none;
+
+        &.active {
+          color: tint($mainColor, 50%);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    @include display(block);
+  }
+
+  .hamburger {
+      outline: none;
   }
 }

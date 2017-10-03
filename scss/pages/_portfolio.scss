@@ -1,0 +1,100 @@
+/********** Portfolio page styles  **********/
+.select-section {
+  padding: 20px 0 0 0;
+  border-bottom: 1px solid $mainColor;
+
+  &__tabs {
+    @include display(flex);
+    justify-content: space-between;
+    width: 285px;
+    padding: 0 20px;
+
+    .tab {
+      padding: 8px 10px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      text-align: center;
+      color: #fff;
+      background-color: $mainColor;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-bottom: -1px;
+
+      &.active {
+        color: $mainColor;
+        background-color: #fff;
+        border-top: 1px solid $mainColor;
+        border-left: 1px solid $mainColor;
+        border-right: 1px solid $mainColor;
+      }
+    }
+
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+    }
+  }
+}
+
+.toggle-section {
+  // border-top: 1px solid $mainColor;
+
+  #allImages,
+  #allJobs {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .custom-grid-container .custom-grid .custom-grid__item .grid-image {
+    width: 100%;
+    height: 100% !important;
+  }
+
+  #allJobs {
+    margin-top: 45px;
+  }
+}
+
+// Full image gallery
+.image-gallery {
+  //display: none;
+
+  .sortable-grid {
+    list-style: none;
+  }
+
+  &__tags {
+    padding: 0 20px;
+    margin: 0 0 15px 0;
+
+    [type="radio"] {
+
+      &:not(:checked),
+      &:checked {
+        position: absolute;
+        left: -9999px;
+      }
+
+      &:checked + label {
+        border-bottom: 2px solid $mainColor;
+      }
+
+      + label {
+        display: inline-block;
+        color: $mainColor;
+        margin-right: 15px;
+        padding: 0 10px;
+        cursor: pointer;
+        @include transition(all 0.2s ease);
+        margin-bottom: 10px;
+
+        &:hover {
+          color: tint($linkColor, 50%);
+        }
+      }
+    }
+  }
+}

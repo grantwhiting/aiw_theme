@@ -1,0 +1,168 @@
+// Custom grid for job and product display
+
+$custom-grid: (
+  columns: 12,
+  gutter: 10px
+);
+
+.custom-grid-container {
+  @include grid-container;
+}
+
+.custom-grid {
+  @include grid-column(12, $custom-grid);
+  margin-bottom: 35px;
+
+  &__item {
+    @include grid-column(3, $custom-grid);
+    height: 0;
+    padding-top: 22%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    display: block;
+
+    &.with-image {
+      overflow: hidden;
+
+      &:before {
+        content:"";
+        @include position(absolute, 0 null null 0);
+        @include size(100% 100%);
+        display: block;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+
+      .grid-image {
+        object-fit: cover;
+        -webkit-backface-visibility: hidden;
+        @include transform(translateZ(0));
+        @include position(absolute, 0 null null 0);
+        width: 100%;
+        @include transition(all 0.4s ease);
+        display: block;
+        border-radius: 0;
+        max-width: fit-content;
+        z-index: 0;
+      }
+
+      &.portfolio {
+        cursor: pointer;
+
+        h4 {
+          @include position(absolute, 50% null null 50%);
+          @include transform(translateY(-50%) translateX(-50%));
+          color: #fff;
+          z-index: 2;
+        }
+
+        &:hover .grid-image {
+          @include transform(scale(1.2));
+        }
+      }
+
+      &.staff {
+        &:before {
+          opacity: 0;
+          @include transition(all 0.4s ease);
+          background-color: rgba(146, 45, 32, 0.4);
+        }
+
+        .grid-info {
+          @include position(absolute, 10px null null 10px);
+          @include size(100% 100%);
+          @include transition(all 0.4s ease);
+          z-index: 2;
+          color: #fff;
+          opacity: 0;
+
+          h4,
+          p {
+            line-height: 2.1;
+          }
+        }
+
+        &:hover {
+
+          .grid-info {
+            opacity: 1;
+          }
+
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $tablet) {
+      @include grid-column(6, $custom-grid);
+      padding-top: 45%;
+    }
+
+    @media screen and (max-width: $mobile) {
+      @include grid-column(12, $custom-grid);
+      padding-top: 65%;
+    }
+  }
+}
+
+.show-more-button {
+  display: none; // Conditional display in app.js
+  background-color: transparent;
+  border: 1px solid $mainColor;
+  border-radius: 4px;
+  margin: 15px auto;
+  padding: 10px 0;
+  text-align: center;
+  color: $mainColor;
+  width: 150px;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  @include transition(all 0.2s ease);
+
+  &:hover {
+    background-color: $mainColor;
+    color: #fff;
+  }
+}
+
+
+// Flex grid
+.flex-grid {
+  @include display(flex);
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__img-col {
+    margin-right: 60px;
+    flex-grow: 4;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__text-col {
+    flex-grow: 1;
+  }
+
+  // Reverse row
+  &:nth-child(odd) {
+    @include flex-direction(row-reverse);
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $secondaryColor;
+  }
+}

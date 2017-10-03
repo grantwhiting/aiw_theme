@@ -1,9 +1,14 @@
 @import "bourbon/bourbon";
+@import "base/variables";
 @import "neat/neat";
 @import "~normalize.css";
 @import "base/base";
 
-// Main styles
+@import "base/grid";
+@import "base/refills";
+
+// External styles
+@import "hamburgers/hamburgers";
 
 // Page styles
 @import "pages/home";
@@ -11,3 +16,5 @@
 @import "pages/portfolio";
 @import "pages/process";
 @import "pages/staff";
+@import "pages/products";
+@import "pages/contact";
