@@ -10356,7 +10356,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _jquery2.default)(function () {
 
   // Fade in body
-  (0, _jquery2.default)("html").fadeIn("medium");
+  (0, _jquery2.default)("#mainHTML").fadeIn("medium");
 
   // Modal
   (0, _jquery2.default)(".modal-fade-screen, .modal-close").on("click", function () {

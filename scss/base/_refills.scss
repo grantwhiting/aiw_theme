@@ -123,10 +123,6 @@
 
     .modal-content {
       color: $base-font-color;
-
-      @media screen and (max-width: $tablet) {
-        columns: 2 8em;
-      }
     }
 
     a.cta {
@@ -158,6 +154,10 @@
     top: 50%;
     left: 50%;
     @include transform(translateY(-50%) translateX(-50%));
+
+    @media screen and (max-width: $tablet) {
+      top: 40%;
+    }
   }
 }
 

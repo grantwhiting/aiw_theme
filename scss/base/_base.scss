@@ -17,11 +17,12 @@ body {
   @include grid-container;
   position: relative;
   background-color: #fff;
-  margin: 0 auto;
+  margin: 0 auto 101px auto;
   padding: 15px;
 
   &__inner {
     max-width: 1500px;
+    margin: 0 auto;
   }
 
   &:after {
@@ -30,6 +31,10 @@ body {
     width: 100%;
     box-shadow: 0px 10px 14px -4px rgba(0, 0, 0, 0.75);
     height: 10px;
+  }
+
+  &.no-banner {
+    min-height: 500px;
   }
 }
 
@@ -105,7 +110,15 @@ header {
 
 // 404
 .notfound {
+  display: table;
+  height: 200px;
+  width: 100%;
   text-align: center;
+
+  &__content {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 // Footer

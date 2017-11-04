@@ -14,10 +14,12 @@ get_header();
 <div class="main-content__inner">
   <div class="staff-page">
     <section class="section text-section">
+      <?php while(have_posts()): the_post(); ?>
       <h2 class="section__title">
-        <span>Meet our Team</span>
+        <span><?php the_title(); ?></span>
       </h2>
-      <p class="section__content">Some text about the staff... Sed turpis dui, rutrum cursus ligula eu, pretium convallis nisl. Proin in iaculis ipsum.</p>
+      <div class="section__content"><?php the_content(); ?></div>
+      <?php endwhile; ?>      
     </section>
 
     <section class="section fade-in">

@@ -7,9 +7,7 @@ $page = get_the_title($post->ID);
 <nav class="main-nav">
   <ul class="main-nav__list">
     <li class="nav-logo">
-      <a href="/">
-        <img src="http://placehold.it/100x50?text=Logo" alt="AIW logo" />
-      </a>
+    <?php the_custom_logo(); ?>
     </li>
     <?php foreach ($items as $item): ?>
     <li class="main-nav__list--item">

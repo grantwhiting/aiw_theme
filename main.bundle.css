@@ -626,14 +626,15 @@ body {
 .main-content {
   position: relative;
   background-color: #fff;
-  margin: 0 auto;
+  margin: 0 auto 101px auto;
   padding: 15px; }
   .main-content::after {
     clear: both;
     content: "";
     display: block; }
   .main-content__inner {
-    max-width: 1500px; }
+    max-width: 1500px;
+    margin: 0 auto; }
   .main-content:after {
     content: "";
     position: absolute;
@@ -642,6 +643,8 @@ body {
     width: 100%;
     box-shadow: 0px 10px 14px -4px rgba(0, 0, 0, 0.75);
     height: 10px; }
+  .main-content.no-banner {
+    min-height: 500px; }
 
 .section {
   padding: 20px 0; }
@@ -704,7 +707,13 @@ header {
   background-color: rgba(0, 0, 0, 0.5); }
 
 .notfound {
+  display: table;
+  height: 200px;
+  width: 100%;
   text-align: center; }
+  .notfound__content {
+    display: table-cell;
+    vertical-align: middle; }
 
 footer {
   text-align: center;
@@ -977,9 +986,6 @@ footer {
     margin-bottom: 1em; }
   .modal .modal-inner .modal-content {
     color: #333; }
-    @media screen and (max-width: 768px) {
-      .modal .modal-inner .modal-content {
-        columns: 2 8em; } }
   .modal .modal-inner a.cta {
     color: #fff;
     display: inline-block;
@@ -1004,6 +1010,9 @@ footer {
   -ms-transform: translateY(-50%) translateX(-50%);
   -o-transform: translateY(-50%) translateX(-50%);
   transform: translateY(-50%) translateX(-50%); }
+  @media screen and (max-width: 768px) {
+    .modal .modal-state:checked + .modal-fade-screen .modal-inner {
+      top: 40%; } }
 
 .modal-open {
   overflow: hidden; }
@@ -1937,8 +1946,6 @@ a {
       height: 70px;
       margin-right: auto;
       padding: 10px 0; }
-      .main-nav__list .nav-logo img {
-        height: 100%; }
     .main-nav__list--item {
       display: table;
       margin: 0 20px;

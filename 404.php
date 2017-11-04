@@ -6,7 +6,10 @@ get_header();
 
 <div class="main-content__inner">
   <div class="notfound">
-    <h1>Oop! Page Not found...</h1>
+    <div class="notfound__content">
+      <h1>Oops! Page Not found...</h1>
+      <a href="/">Go back to our Home Page.</a>
+    </div>
   </div>
 </div>
 

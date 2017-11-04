@@ -6,7 +6,7 @@ $page = get_the_title($post->ID);
 
 <div class="mobile-nav">
   <div class="mobile-nav__bar">
-    <img src="http://placehold.it/100x50?text=Logo" alt="AIW logo" />
+    <?php the_custom_logo(); ?>
 
     <button class="hamburger hamburger--spin" type="button">
       <span class="hamburger-box">

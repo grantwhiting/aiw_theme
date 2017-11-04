@@ -10,7 +10,7 @@ $(function() {
 
 
   // Fade in body
-  $("html").fadeIn("medium");
+  $("#mainHTML").fadeIn("medium");
 
 
   // Modal

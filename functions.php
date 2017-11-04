@@ -20,6 +20,13 @@ function aiw_setup() {
 
 	add_image_size( 'aiw-thumbnail-avatar', 100, 100, true );
 
+	// Add custom logo theme support
+	add_theme_support( 'custom-logo', array(
+		'height' => 89,
+		'width' => 251,
+		'header-text' => array( 'site-title', 'site-description' ),
+	) );
+
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;
 
@@ -48,13 +55,6 @@ function aiw_setup() {
 		'link',
 		'gallery',
 		'audio',
-	) );
-
-	// Add theme support for Custom Logo.
-	add_theme_support( 'custom-logo', array(
-		'width'       => 250,
-		'height'      => 250,
-		'flex-width'  => true,
 	) );
 
 	// Add theme support for selective refresh for widgets.

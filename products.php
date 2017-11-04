@@ -15,22 +15,6 @@ get_header();
 
 <div class="main-content__inner">
   <div class="products">
-  <?php
-  /*
-  <ul class="products-nav">
-    <?php
-    while ($productsPod->fetch()):
-        $ID = $productsPod->field('html_id');
-        $title = $productsPod->field('title');
-    ?>
-    <li><a class="scroll-to" href="#<?php echo $ID; ?>" data-html-id="<?php echo $ID; ?>"><?php echo $title; ?></a></li>
-    <?php
-    endwhile;
-    ?>
-  </ul>
-  */
-  ?>
-
     <?php
     if ($productsPod2->total() > 0):
       while ($productsPod2->fetch()):

@@ -12,11 +12,13 @@ get_header();
 ?>
 
 <div class="home-page">
-  <section class="section text-section">
+  <section class="section text-section">    
+    <?php while (have_posts()): the_post(); ?>
     <h2 class="section__title">
-      <span>We Are AIW</span>
+      <span><?php the_title(); ?></span>
     </h2>
-    <p class="section__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt tempus purus sit amet eleifend. Sed turpis dui, rutrum cursus ligula eu, pretium convallis nisl. Proin in iaculis ipsum.</p>
+    <div class="section__content"><?php the_content(); ?></div>
+    <?php endwhile; ?>    
   </section>
 
   <section class="section fade-in">
@@ -29,7 +31,7 @@ get_header();
           $content = $productsPod->field('content');
           $featuredImage = $productsPod->display('featured_image');
       ?>
-      <a href="/aiw/products/<?php echo strtolower($title); ?>" class="image-grid__item">
+      <a href="<?= get_site_url(); ?>/products/<?php echo strtolower($title); ?>" class="image-grid__item">
         <img class="image-grid__item--featured-image" src="<?php echo $featuredImage; ?>" />
         <p><?php echo $title; ?></p>
       </a>
