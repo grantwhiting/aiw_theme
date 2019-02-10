@@ -14,7 +14,7 @@
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
       text-align: center;
-      color: #fff;
+      color: $mainBgColor;
       background-color: $mainColor;
       border: none;
       outline: none;
@@ -23,7 +23,7 @@
 
       &.active {
         color: $mainColor;
-        background-color: #fff;
+        background-color: $mainBgColor;
         border-top: 1px solid $mainColor;
         border-left: 1px solid $mainColor;
         border-right: 1px solid $mainColor;

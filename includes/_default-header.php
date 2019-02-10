@@ -9,7 +9,7 @@ $pageImgSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'aiw
   <div class="parallax-static-content">
     <?php get_template_part('/includes/_navigation'); ?>
     <div class="tagline">
-      <h1><?php echo $pageTagline; ?></h1>
+      <h1 class="outline"><?php echo $pageTagline; ?></h1>
     </div>
   </div>
   <?php if ($page != 'home'): ?>

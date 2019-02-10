@@ -23,8 +23,8 @@ $homeSlider = pods(
     <?php get_template_part('/includes/_navigation'); ?>
     <div class="owl-carousel-header">
       <div class="tagline">
-        <h1>AIW</h1>
-        <p><?php echo $pageTagline; ?></p>
+        <h1 class="outline">AIW</h1>
+        <p class="outline"><?php echo $pageTagline; ?></p>
         <a class="cta-button" href="/process">Get Started</a>
       </div>
       <div id="js-parallax-background" class="parallax-background" style="background-image: url(<?php echo $pageImgSrc[0]; ?>);">

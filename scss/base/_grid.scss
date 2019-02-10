@@ -27,14 +27,14 @@ $custom-grid: (
     &.with-image {
       overflow: hidden;
 
-      &:before {
-        content:"";
-        @include position(absolute, 0 null null 0);
-        @include size(100% 100%);
-        display: block;
-        z-index: 1;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
+      // &:before {
+      //   content:"";
+      //   @include position(absolute, 0 null null 0);
+      //   @include size(100% 100%);
+      //   display: block;
+      //   z-index: 1;
+      //   background-color: rgba(0, 0, 0, 0.5);
+      // }
 
 
       .grid-image {

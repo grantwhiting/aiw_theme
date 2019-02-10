@@ -192,8 +192,7 @@ $parallax-background-height: 30.5em;
   left: 0;
   position: absolute;
   top: - $parallax-window-height / 3;
-  width: 100%;
-  @include filter(brightness(50%));
+  @include filter(brightness(75%));
 }
 
 // Fade In sections
