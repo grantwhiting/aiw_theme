@@ -1,6 +1,16 @@
     </div><!-- main-content -->
     <footer>
-      <p>&copy; <?php echo date("Y"); ?> Architectural Iron Works | All Rights Reserved</p>
+      <div class="footer-content">
+        <ul class="footer-social-links">
+          <li>
+            <a href="https://www.facebook.com/aiwslo/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/architecturalironworks/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.pinterest.com/architecturalironworks/" target="_blank"><i class="fab fa-pinterest"></i></a>
+            <a href="https://www.linkedin.com/company/aiw-slo/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </li>
+        </ul>
+        <p>&copy; <?php echo date("Y"); ?> Architectural Iron Works | All Rights Reserved</p>
+      </div>
     </footer>
 
     <!-- Mobile nav include -->

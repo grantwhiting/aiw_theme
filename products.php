@@ -28,7 +28,7 @@ get_header();
       <h2 class="section__title">
         <span><?php  echo $title; ?></span>
       </h2>
-      <p class="section__content"><?php echo $content; ?></p>
+      <div><?php echo $content; ?></div>
     </section>
 
     <section class="section fade-in">
@@ -36,7 +36,7 @@ get_header();
         <div class="custom-grid">
         <?php foreach ($images as $image): ?>
           <div class="custom-grid__item with-image portfolio js-grid-item" onclick="triggerModal('<?php echo $image; ?>')">
-            <img class="grid-image auto-height-image" src="<?php echo $image; ?> "/>
+            <img class="grid-image auto-height-image" data-src="<?php echo $image; ?>" src="#"/>
           </div>
         <?php endforeach; ?>
         </div>
@@ -72,6 +72,5 @@ get_header();
     </div>
   </div>
 </div>
-
 
 <?php get_footer(); ?>

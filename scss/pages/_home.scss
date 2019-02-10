@@ -13,6 +13,7 @@
     h1 {
       font-size: 5.4em;
       margin: 0 auto;
+      line-height: 1.2;
     }
 
     p {
@@ -70,6 +71,10 @@
       width: 100%;
       @include transition(all 0.5s ease);
       @include filter(brightness(50%));
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     &:after {
@@ -113,4 +118,9 @@
       padding-top: 75%;
     }
   }
+}
+
+.external-links {
+  max-width: 1000px;
+  margin: 0 auto;
 }

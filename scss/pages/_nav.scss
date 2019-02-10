@@ -23,10 +23,6 @@
 
     .main-nav__list {
 
-      .nav-logo {
-        height: 65px;
-      }
-
       &--item {
 
         a {
@@ -46,13 +42,6 @@
     @include align-items(center);
     @include justify-content(space-around);
     padding: 0 20px;
-
-    .nav-logo {
-      @include transition(height 0.5s ease);
-      height: 70px;
-      margin-right: auto;
-      padding: 10px 0;
-    }
 
     &--item {
       display: table;
@@ -102,6 +91,22 @@
   }
 }
 
+.nav-logo {
+  @include transition(height 0.5s ease);
+  height: 70px;
+  margin-right: auto;
+  padding: 10px 0;
+  display: inline-block;
+
+  img {
+    width: 150px !important;
+    height: 100%;
+    @media (max-width: $mobile) {
+      width: 115px !important;
+    }
+  }
+}
+
 
 // Mobile nav
 .mobile-nav {
@@ -112,7 +117,7 @@
   overflow: hidden;
   width: 100%;
   z-index: 99999;
-  height: 65px;
+  height: 75px;
 
   &.is-open{
     height: 100%;

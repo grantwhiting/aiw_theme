@@ -21,11 +21,7 @@ function aiw_setup() {
 	add_image_size( 'aiw-thumbnail-avatar', 100, 100, true );
 
 	// Add custom logo theme support
-	add_theme_support( 'custom-logo', array(
-		'height' => 89,
-		'width' => 251,
-		'header-text' => array( 'site-title', 'site-description' ),
-	) );
+	add_theme_support( 'custom-logo' );
 
 	// Set the default content width.
 	$GLOBALS['content_width'] = 525;

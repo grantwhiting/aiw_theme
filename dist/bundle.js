@@ -10425,7 +10425,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       items: 1,
       animateOut: 'fadeOut',
       dots: false,
-      nav: false
+      nav: false,
+      autoplayHoverPause: false
     });
   }
 
@@ -10544,7 +10545,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         (0, _jquery2.default)('.sortable-grid > li.' + (0, _jquery2.default)(this).attr('rel')).not('.hidden').fadeIn("medium");
       });
     } else {
-      (0, _jquery2.default)('.sortable-grid > li').not('.hidden').fadeIn("mediumf");
+      (0, _jquery2.default)('.sortable-grid > li').not('.hidden').fadeIn("medium");
+    }
+  });
+
+  // deffer load images
+  (0, _jquery2.default)(function () {
+    var $showMoreBtn = (0, _jquery2.default)('.show-more-button'),
+        $loadMoreImgs = (0, _jquery2.default)('#showImages');
+
+    function loadImg() {
+      var $img = (0, _jquery2.default)('.grid-image');
+      if ($img) {
+        $img.each(function () {
+          if (window.getComputedStyle(this.parentElement).display !== 'none') {
+            this.src = this.dataset.src;
+          }
+        });
+      };
+    }loadImg();
+
+    if ($showMoreBtn) {
+      $showMoreBtn.click(function () {
+        loadImg();
+      });
+    }
+
+    if ($loadMoreImgs) {
+      loadImg();
     }
   });
 });

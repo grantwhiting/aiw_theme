@@ -12,12 +12,20 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  line-height: 1.7;
+}
+
+ul {
+  list-style-position: inside;
+}
+
 // Grid
 .main-content {
   @include grid-container;
   position: relative;
   background-color: #fff;
-  margin: 0 auto 101px auto;
+  margin: 0 auto 135px auto;
   padding: 15px;
 
   &__inner {
@@ -72,7 +80,6 @@ body {
 .text-section {
   margin: 30px auto 50px auto;
   max-width: 960px;
-  text-align: center;
 }
 
 // Header
@@ -83,9 +90,10 @@ header {
   .parallax-static-content { // Specific to parallax in the header
     position: relative;
     height: 30em;
+    line-height: 1.3;
 
     .tagline {
-      @include position(absolute, 50% null null 50%);
+      @include position(absolute, 56% null null 50%);
       @include transform(translateY(-50%) translateX(-50%));
       color: #fff;
       font-family: 'Poiret One', cursive;
@@ -93,6 +101,9 @@ header {
       h1 {
         font-size: 5.4em;
         margin: 0 auto;
+        @media (max-width: $mobile) {
+          font-size: 3.4em;
+        }
       }
 
       p {
@@ -121,6 +132,45 @@ header {
   }
 }
 
+// Forms
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+
+  .form-row {
+    margin-bottom: 10px;
+
+    .form-item {
+
+      span {
+        width: 100%;
+        display: block;
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 8px;
+        }
+      }
+
+      input[type="submit"] {
+        background-color: $mainColor;
+        color: #fff;
+        padding: 8px 12px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        @include transition(all 0.2s ease);
+
+        &:hover {
+          background-color: $secondaryColor;
+        }
+      }
+    }
+  }
+}
+
 // Footer
 footer {
   text-align: center;
@@ -130,8 +180,19 @@ footer {
   z-index: -1;
   padding: 30px 15px;
 
-  p {
+  .footer-content {
     display: table-cell;
     vertical-align: middle;
+
+    .footer-social-links {
+      list-style: none;
+      display: block;
+      margin: 0 auto;
+
+      a {
+        font-size: 28px;
+        margin: 0 5px;
+      }
+    }
   }
 }

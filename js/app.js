@@ -80,7 +80,8 @@ $(function() {
       items: 1,
       animateOut: 'fadeOut',
       dots: false,
-      nav: false
+      nav: false,
+      autoplayHoverPause: false
     });
   }
 
@@ -202,8 +203,35 @@ $(function() {
             $('.sortable-grid > li.' + $(this).attr('rel')).not('.hidden').fadeIn("medium");
         });
       } else {
-          $('.sortable-grid > li').not('.hidden').fadeIn("mediumf");
+          $('.sortable-grid > li').not('.hidden').fadeIn("medium");
       }
   });
 
+
+  // deffer load images
+  $(function() {
+    var $showMoreBtn = $('.show-more-button'),
+        $loadMoreImgs = $('#showImages');
+
+    function loadImg() {
+      var $img = $('.grid-image');
+      if ($img) {
+        $img.each(function() {
+          if (window.getComputedStyle(this.parentElement).display !== 'none') {
+            this.src = this.dataset.src;
+          }
+        });
+      };
+    } loadImg();
+
+    if ($showMoreBtn) {
+      $showMoreBtn.click(function() {
+        loadImg();
+      });
+    }
+
+    if ($loadMoreImgs) {
+      loadImg();
+    }
+  });
 });

@@ -45,7 +45,7 @@
     text-align: left;
     transition: opacity 0.25s ease;
     visibility: hidden;
-    z-index: 99999999999;
+    z-index: 999;
 
     @media screen and (max-width: $largedesktop) {
       padding-top: 10em;
@@ -167,7 +167,7 @@
 
 // Parallax windows
 $parallax-window-height: 30em;
-$parallax-background-height: $parallax-window-height * 2;
+$parallax-background-height: 30.5em;
 
 .parallax-window {
   max-height: $parallax-window-height;

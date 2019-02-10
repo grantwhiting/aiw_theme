@@ -14,10 +14,12 @@ get_header();
 <div class="main-content__inner">
   <div class="portfolio-page">
     <section class="section text-section">
+      <?php while(have_posts()): the_post(); ?>
       <h2 class="section__title">
-        <span>See Our Work</span>
+        <span><?php the_title(); ?></span>
       </h2>
-      <p class="section__content">Some text about our portfolio page... Sed turpis dui, rutrum cursus ligula eu, pretium convallis nisl. Proin in iaculis ipsum.</p>
+      <div><?php the_content(); ?></div>
+      <?php endwhile; ?>      
     </section>
 
     <section class="section select-section fade-in">
@@ -40,7 +42,7 @@ get_header();
               $images = $portfolioPod->field('gallery.guid');
           ?>
           <div class="custom-grid__item with-image portfolio js-grid-item trigger-owl" onclick='triggerModalWithOwl("<?php echo $title; ?>", <?php echo json_encode($content); ?>, <?php echo json_encode($images); ?>)'>
-            <img class="grid-image auto-height-image" src="<?php echo $featuredImage; ?> "/>
+            <img class="grid-image auto-height-image" data-src="<?php echo $featuredImage; ?>" src="#" />
             <div class="grid-info">
               <h4><?php echo $title; ?></h4>
             </div>
@@ -104,7 +106,7 @@ get_header();
         ?>
           <li class="all <?php echo strtolower($imageCategoryList); ?>">
             <div class="custom-grid__item with-image portfolio image-gallery__item" onclick="triggerModal('<?php echo $image->guid; ?>')">
-              <img class="grid-image auto-height-image" src="<?php echo $image->guid; ?> "/>
+              <img class="grid-image auto-height-image" src="javascrit:void(0)" data-src="<?php echo $image->guid; ?>" />
             </div>
           </li>
         <?php endforeach; ?>
