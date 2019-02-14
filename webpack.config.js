@@ -1,10 +1,21 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  optimization: {
+    minimizer: [
+        new UglifyJsPlugin({
+          test: /\.js(\?.*)?$/i,
+          extractComments: true,
+          include: './bundle.js',
+        } 
+      )
+    ]
+  },
   entry: ["./js/app.js", "./scss/main.scss"],
   output: {
-    filename: "./dist/bundle.js",
+    filename: "./bundle.js",
   },
   module: {
     rules: [
@@ -15,11 +26,14 @@ module.exports = {
       },
       { // regular css files
         test: /\.css$/,
-        use:  ExtractTextPlugin.extract({fallback: "style-loader", use:["css-loader"]})
+        use:  ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [ { loader: 'css-loader', options: { minimize: true } }, 'postcss-loader' ]
+        })
       },
       { // sass / scss loader for webpack
         test: /\.(sass|scss)$/,
-        use: ExtractTextPlugin.extract(["css-loader", "sass-loader"])
+        use: ExtractTextPlugin.extract([{ loader: 'css-loader', options: { minimize: true } }, 'postcss-loader', "sass-loader"])
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -40,5 +54,5 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery"
     })
-  ],
+  ]
 }
