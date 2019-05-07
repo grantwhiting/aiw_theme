@@ -39,6 +39,17 @@
         border: 1px solid #fff;
       }
     }
+
+    .arrow-down {
+      margin: 15px auto 0 auto;
+      @include display(block);
+      width: 50px;
+      height: 50px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      cursor: pointer;
+    }
   }
 
   @media screen and (max-width: $tablet) {
@@ -70,7 +81,6 @@
       @include position(absolute, 0 null null 0);
       width: 100%;
       @include transition(all 0.5s ease);
-      // @include filter(brightness(50%));
       height: 100%;
       background-size: cover;
       background-position: center;
@@ -91,12 +101,16 @@
       color: #fff;
       text-transform: uppercase;
       vertical-align: middle;
-      font-size: 2.5em;
+      font-size: 2.1em;
       text-shadow: -1px -1px 0 #000, 
                   1px -1px 0 #000, 
                   -1px 1px 0 #000, 
                   1px 1px 0 #000;
       letter-spacing: 3px;
+
+      @media screen and (max-width: $tablet) {
+        font-size: 1.5em;
+      }
     }
 
     &:hover {
@@ -128,4 +142,35 @@
 .external-links {
   max-width: 1000px;
   margin: 0 auto;
+}
+
+.animate {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: 4;
+  -webkit-animation-iteration-count: 4;
+}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
 }

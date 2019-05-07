@@ -8,7 +8,7 @@ $pod = pods('product', $slug);
 // Pod variables
 $title = $pod->field('title');
 $content = $pod->field('content');
-$images = $pod->field('gallery.guid');
+$images = $pod->field('gallery.ID');
 
 get_header();
 ?>
@@ -26,8 +26,8 @@ get_header();
       <div class="js-grid custom-grid-container">
         <div class="custom-grid">
         <?php foreach($images as $image): ?>
-          <div class="custom-grid__item with-image portfolio js-grid-item" onclick="triggerModal('<?php echo $image; ?>')">
-            <img class="grid-image auto-height-image" data-src="<?php echo $image; ?>" src="#" />
+          <div class="custom-grid__item with-image portfolio js-grid-item" onclick="triggerModal('<?php echo pods_image_url($image, 'large'); ?>')">
+            <img class="grid-image auto-height-image" data-src="<?php echo pods_image_url($image, 'large'); ?>" src="#" />
           </div>
         <?php endforeach; ?>
         </div>

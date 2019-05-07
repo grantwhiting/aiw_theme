@@ -81,7 +81,8 @@ $(function() {
       animateOut: 'fadeOut',
       dots: false,
       nav: false,
-      autoplayHoverPause: false
+      autoplayHoverPause: false,
+      lazyLoad: true
     });
   }
 
@@ -233,5 +234,14 @@ $(function() {
     if ($loadMoreImgs) {
       loadImg();
     }
+  });
+});
+
+// animate scroll to content on arrow click
+$(function() {
+  $('#arrowDown').click(function() {
+    $("html, body").animate({ 
+      scrollTop: $('.main-content').offset().top 
+    }, 600);
   });
 });

@@ -26,22 +26,23 @@ $homeSlider = pods(
         <h1 class="outline">AIW</h1>
         <p class="outline"><?php echo $pageTagline; ?></p>
         <a class="cta-button" href="/process">Get Started</a>
+        <span id="arrowDown" class="arrow-down bounce animate" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/arrow-down.png)"></span>
       </div>
-      <div id="js-parallax-background" class="parallax-background" style="background-image: url(<?php echo $pageImgSrc[0]; ?>);">
-        <div class="owl-carousel owl-theme">
+      <div id="js-parallax-background" class="parallax-background header-image" style="background-image: url(<?php echo $pageImgSrc[0]; ?>);">
+        <!-- <div class="owl-carousel owl-theme">
           <?php
           if ($homeSlider->total() > 0):
             while ($homeSlider->fetch()):
               $slides = $homeSlider->field('slides.guid');
               foreach ($slides as $slide):
           ?>
-              <img src="<?php echo $slide; ?>" />
+            <div class="owl-image owl-lazy" data-src="<?php echo $slide; ?>" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/ajax-loader.gif)"></div>
           <?php
               endforeach;
             endwhile;
           endif;
           ?>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

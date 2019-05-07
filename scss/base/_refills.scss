@@ -166,9 +166,6 @@
 }
 
 // Parallax windows
-$parallax-window-height: 30em;
-$parallax-background-height: 30.5em;
-
 .parallax-window {
   max-height: $parallax-window-height;
   overflow: hidden;
@@ -192,7 +189,8 @@ $parallax-background-height: 30.5em;
   left: 0;
   position: absolute;
   top: - $parallax-window-height / 3;
-  @include filter(brightness(75%));
+  width: 100%;
+  @include filter(brightness(95%));
 }
 
 // Fade In sections
@@ -227,7 +225,9 @@ a {
 
   .owl-image {
     display: block;
-    max-width: 850px;
     margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+    height: $parallax-background-height;
   }
 }
