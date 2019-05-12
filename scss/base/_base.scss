@@ -91,7 +91,6 @@ header {
     position: relative;
     height: $parallax-window-height;
     line-height: 1.3;
-    background-color: $mainBgColor;
 
     .tagline {
       @include position(absolute, 56% null null 50%);

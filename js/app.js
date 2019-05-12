@@ -207,41 +207,39 @@ $(function() {
           $('.sortable-grid > li').not('.hidden').fadeIn("medium");
       }
   });
-
-
-  // deffer load images
-  $(function() {
-    var $showMoreBtn = $('.show-more-button'),
-        $loadMoreImgs = $('#showImages');
-
-    function loadImg() {
-      var $img = $('.grid-image');
-      if ($img) {
-        $img.each(function() {
-          if (window.getComputedStyle(this.parentElement).display !== 'none') {
-            this.src = this.dataset.src;
-          }
-        });
-      };
-    } loadImg();
-
-    if ($showMoreBtn) {
-      $showMoreBtn.click(function() {
-        loadImg();
-      });
-    }
-
-    if ($loadMoreImgs) {
-      loadImg();
-    }
-  });
 });
+
+function defferLoadImages() {
+  var $showMoreBtn = $('.show-more-button'),
+      $loadMoreImgs = $('#showImages');
+
+  function loadImg() {
+    var $img = $('.grid-image');
+    if ($img) {
+      $img.each(function() {
+        if (window.getComputedStyle(this.parentElement).display !== 'none') {
+          this.style.backgroundImage = 'url(' + this.dataset.src + ')';
+        }
+      });
+    };
+  } loadImg();
+
+  if ($showMoreBtn) {
+    $showMoreBtn.click(function() {
+      loadImg();
+    });
+  }
+
+  if ($loadMoreImgs) {
+    loadImg();
+  }
+} defferLoadImages();
 
 // animate scroll to content on arrow click
 $(function() {
   $('#arrowDown').click(function() {
-    $("html, body").animate({ 
-      scrollTop: $('.main-content').offset().top 
+    $("html, body").animate({
+      scrollTop: $('.main-content').offset().top
     }, 600);
   });
 });

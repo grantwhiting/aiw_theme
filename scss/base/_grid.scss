@@ -27,27 +27,13 @@ $custom-grid: (
     &.with-image {
       overflow: hidden;
 
-      // &:before {
-      //   content:"";
-      //   @include position(absolute, 0 null null 0);
-      //   @include size(100% 100%);
-      //   display: block;
-      //   z-index: 1;
-      //   background-color: rgba(0, 0, 0, 0.5);
-      // }
-
-
       .grid-image {
-        object-fit: cover;
-        -webkit-backface-visibility: hidden;
         @include transform(translateZ(0));
-        @include position(absolute, 0 null null 0);
-        width: 100%;
+        @include position(absolute, 0 null null null);
         @include transition(all 0.4s ease);
-        display: block;
-        border-radius: 0;
-        max-width: fit-content;
-        z-index: 0;
+        -webkit-backface-visibility: hidden;
+        background-position: center;
+        background-size: cover;
       }
 
       &.portfolio {

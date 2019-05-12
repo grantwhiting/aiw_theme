@@ -19,7 +19,7 @@ get_header();
         <span><?php the_title(); ?></span>
       </h2>
       <div><?php the_content(); ?></div>
-      <?php endwhile; ?>      
+      <?php endwhile; ?>
     </section>
 
     <section class="section select-section fade-in">
@@ -40,13 +40,9 @@ get_header();
               $featuredImage = $portfolioPod->display('featured_image');
               $content = $portfolioPod->field('content');
               $images = $portfolioPod->field('gallery.ID');
-
-              $images = array_map(function($image) {
-                return pods_image_url($image, 'large');
-              }, $images);
           ?>
           <div class="custom-grid__item with-image portfolio js-grid-item trigger-owl" onclick='triggerModalWithOwl("<?php echo $title; ?>", <?php echo json_encode($content); ?>, <?php echo json_encode($images); ?>)'>
-            <img class="grid-image auto-height-image" data-src="<?php echo $featuredImage; ?>" src="#" />
+            <div class="grid-image auto-height-image" data-src="<?php echo $featuredImage; ?>"></div>
             <div class="grid-info">
               <h4><?php echo $title; ?></h4>
             </div>
@@ -110,7 +106,7 @@ get_header();
         ?>
           <li class="all <?php echo strtolower($imageCategoryList); ?>">
             <div class="custom-grid__item with-image portfolio image-gallery__item" onclick="triggerModal('<?php echo pods_image_url($image->ID, 'large'); ?>')">
-              <img class="grid-image auto-height-image" src="javascrit:void(0)" data-src="<?php echo pods_image_url($image->ID, 'large'); ?>" />
+              <div class="grid-image auto-height-image" data-src="<?php echo pods_image_url($image->ID, 'large'); ?>"></div>
             </div>
           </li>
         <?php endforeach; ?>
