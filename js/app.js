@@ -137,17 +137,19 @@ $(function() {
   $(".select-section > div > button").each(function() {
     $(this).click(function() {
       $(this).addClass("active").siblings().removeClass("active");
+
+      if ($(this).is('#showJobs')) {
+        $("#allJobs").addClass("active");
+        $("#allImages").removeClass("active");
+        $('#allJobs .grid-image').slice(0, 3).show();
+      } else if ($(this).is('#showImages')) {
+        $("#allImages").addClass("active");
+        $("#allJobs").removeClass("active");
+        $('#allJobs .grid-image').slice(0, 3).show();
+      }
+
+      deferLoadImages();
     });
-  });
-
-  $("#showJobs").click(function() {
-    $("#allJobs").addClass("active");
-    $("#allImages").removeClass("active");
-  });
-
-  $("#showImages").click(function() {
-    $("#allImages").addClass("active");
-    $("#allJobs").removeClass("active");
   });
 
 
@@ -198,7 +200,7 @@ $(function() {
   $('.sortable-grid > li.' + $(this).attr('rel')).show();
 
   $('.image-gallery__tags').find('input:radio').on('click', function () {
-      if($('.image-gallery__tags').find('input:radio:checked').length > 0){
+      if ($('.image-gallery__tags').find('input:radio:checked').length > 0){
         $('.sortable-grid > li').hide();
         $('.image-gallery__tags').find('input:checked').each(function () {
             $('.sortable-grid > li.' + $(this).attr('rel')).not('.hidden').fadeIn("medium");
@@ -206,10 +208,11 @@ $(function() {
       } else {
           $('.sortable-grid > li').not('.hidden').fadeIn("medium");
       }
+      deferLoadImages();
   });
 });
 
-function defferLoadImages() {
+function deferLoadImages() {
   var $showMoreBtn = $('.show-more-button'),
       $loadMoreImgs = $('#showImages');
 
@@ -217,7 +220,7 @@ function defferLoadImages() {
     var $img = $('.grid-image');
     if ($img) {
       $img.each(function() {
-        if (window.getComputedStyle(this.parentElement).display !== 'none') {
+        if ($(this).is(':visible') && isScrolledIntoView(this)) {
           this.style.backgroundImage = 'url(' + this.dataset.src + ')';
         }
       });
@@ -233,7 +236,17 @@ function defferLoadImages() {
   if ($loadMoreImgs) {
     loadImg();
   }
-} defferLoadImages();
+} deferLoadImages();
+
+function isScrolledIntoView(el) {
+  var rect = el.getBoundingClientRect();
+  var elemTop = rect.top;
+  return elemTop < window.innerHeight;
+}
+
+$(window).scroll(function() {
+  deferLoadImages();
+});
 
 // animate scroll to content on arrow click
 $(function() {
